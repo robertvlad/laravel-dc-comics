@@ -38,7 +38,7 @@
                                     <td>{{ $comic['type'] }}</td>
                                     <td>{{ $comic['sale_date'] }}</td>
                                     <td class="text-center">
-                                        <a href="#" class="m-1 btn btn-primary">
+                                        <a href="{{ route('comics.show', ['comic' => $comic['id']]) }}" class="m-1 btn btn-primary">
                                             Dettagli
                                         </a>
                                         <a href="#" class="m-1 btn btn-primary">
