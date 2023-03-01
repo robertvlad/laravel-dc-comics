@@ -15,6 +15,11 @@
             <div class="col-8 d-flex align-items-center">
                 <ul class="d-flex gap-4">
                     <li>
+                        <a href="{{ route('home') }}" class="{{ Route::currentRouteName() == 'home' ? 'active' : '' }}">
+                            HOME
+                        </a>
+                    </li>
+                    <li>
                         <a href="{{ route('characters') }}" class="{{ Route::currentRouteName() == 'characters' ? 'active' : '' }}">
                             CHARACTERS
                         </a>

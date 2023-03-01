@@ -8,6 +8,11 @@
                             <h4>DC COMICS</h4>
                             <ul class="p-0">
                                 <li>
+                                    <a href="{{ route('home') }}">
+                                        HOME
+                                    </a>
+                                </li>
+                                <li>
                                     <a href="{{ route('characters') }}">
                                         CHARACTERS
                                     </a>
