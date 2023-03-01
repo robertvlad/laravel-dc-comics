@@ -10,7 +10,7 @@
     <div class="container">
         <div class="row">
             <div class="col-2">
-                <a href="{{ Route::currentRouteName() }}"><img src="{{ Vite::asset('resources/img/dc-logo.png') }}" alt="DC"></a>                
+                <a href="{{ route('home') }}"><img src="{{ Vite::asset('resources/img/dc-logo.png') }}" alt="DC"></a>                
             </div>
             <div class="col-8 d-flex align-items-center">
                 <ul class="d-flex gap-4">
