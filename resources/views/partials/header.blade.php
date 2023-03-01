@@ -24,11 +24,11 @@
                             CHARACTERS
                         </a>
                     </li>
-                    {{-- <li>
-                        <a href="{{ route('comics') }}" class="{{ Route::currentRouteName() == 'comics' ? 'active' : '' }}">
+                    <li>
+                        <a href="{{ route('comics.index') }}" class="{{ Route::currentRouteName() == 'comics.index' ? 'active' : '' }}">
                             COMICS
                         </a>
-                    </li> --}}
+                    </li>
                     <li>
                         <a href="{{ route('movies') }}" class="{{ Route::currentRouteName() == 'movies' ? 'active' : '' }}">
                             MOVIES

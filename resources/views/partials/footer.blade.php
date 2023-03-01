@@ -17,11 +17,11 @@
                                         CHARACTERS
                                     </a>
                                 </li>
-                                {{-- <li>
-                                    <a href="{{ route('comics') }}">
+                                <li>
+                                    <a href="{{ route('comics.index') }}">
                                         COMICS
                                     </a>
-                                </li> --}}
+                                </li>
                                 <li>
                                     <a href="{{ route('movies') }}">
                                         MOVIES
