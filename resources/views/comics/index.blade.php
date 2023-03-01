@@ -30,7 +30,13 @@
                             @foreach ($comics as $comic)
                             <tr>
                                 <td>{{ $comic['id'] }}</td>
-                                <td><img src="{{ $comic['thumb'] }}" class="img-fluid"></td>
+                                <td>
+                                    @if (!empty ($comic['thumb']) )
+                                        <img src="{{ $comic['thumb'] }}" class="img-fluid">
+                                    @else
+                                        <h4>Immagine non disponibile</h4>
+                                    @endif
+                                </td>
                                 <td>{{ $comic['title'] }}</td>
                                 <td>{{ $comic['price'] }}</td>
                                 <td>{{ $comic['description'] }}</td>
