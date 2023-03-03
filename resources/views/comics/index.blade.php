@@ -47,7 +47,7 @@
                                     <a href="{{ route('comics.show', ['comic' => $comic['id']]) }}" class="m-1 btn btn-primary">
                                         Dettagli
                                     </a>
-                                    <a href="#" class="m-1 btn btn-primary">
+                                    <a href="{{ route('comics.edit', ['comic' => $comic['id']]) }}" class="m-1 btn btn-primary">
                                         Edit
                                     </a>
                                 </td>
