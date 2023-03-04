@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Validator;
 use App\Models\Comic;
 
 use Illuminate\Http\Request;
@@ -38,17 +39,19 @@ class ComicController extends Controller
     public function store(Request $request)
     {
 
-        $request->validate([
-            'title' => 'required',
-            'description' => 'required', 
-            'thumb' => 'required', 
-            'price' => 'required|max:8', 
-            'series' => 'required',
-            'sale_date' => 'required|max:10', 
-            'type'=> 'required', 
-        ]); 
+        // $request->validate([
+        //     'title' => 'required',
+        //     'description' => 'required', 
+        //     'thumb' => 'required', 
+        //     'price' => 'required|max:8', 
+        //     'series' => 'required',
+        //     'sale_date' => 'required|max:10', 
+        //     'type'=> 'required', 
+        // ]); 
 
-        $form_data = $request->all();
+        $form_data = $this->validation($request->all());
+
+        // $form_data = $request->all();
 
         $newComic = new Comic();
         // $newComic->title = $form_data['title'];
@@ -106,17 +109,7 @@ class ComicController extends Controller
     {
         $comic = Comic::findOrFail($id);
 
-        $request->validate([
-            'title' => 'required',
-            'description' => 'required', 
-            'thumb' => 'required', 
-            'price' => 'required|max:8', 
-            'series' => 'required',
-            'sale_date' => 'required|max:10', 
-            'type'=> 'required', 
-        ]); 
-
-        $form_data = $request->all();
+        $form_data = $this->validation($request->all());
 
         $comic->update($form_data);
 
@@ -136,5 +129,33 @@ class ComicController extends Controller
         $comic->delete();
 
         return redirect()->route('comics.index');
+    }
+
+    //DEFINIZIONE DELLA FUNZIONE DI VALIDAZIONE DEI DATI CON MESSAGGI PERSONALIZZATI
+    private function validation($data){
+
+        $validator = Validator::make($data, [
+            'title' => 'required',
+            'description' => 'required', 
+            'thumb' => 'required', 
+            'price' => 'required|max:8', 
+            'series' => 'required',
+            'sale_date' => 'required|max:10', 
+            'type' => 'required'
+        ],
+        [
+            'title.required' => 'Il titolo è obbligatorio',
+            'description.required' => 'La descrizione è obbligatoria', 
+            'thumb.required' => 'L\'immagine è obbligatoria', 
+            'price.required' => 'Il prezzo è obbligatorio',
+            'price.max' => 'Il prezzo non può essere superiore a :max caratteri',
+            'series.required' => 'La serie è obbligatoria',
+            'sale_date.required' => 'La data è obbligatoria',
+            'sale_date.max' => 'La data non può essere superiore a :max caratteri', 
+            'type.required' => 'Il tipo è obbligatorio'
+
+        ])->validate();
+
+        return $validator;
     }
 }
