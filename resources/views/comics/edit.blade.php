@@ -10,6 +10,9 @@
                     <a href="{{ route('comics.index') }}" class="btn btn-primary">
                         Torna all'elenco
                     </a>
+                    <a href="{{ route('comics.show', ['comic' => $comic['id']]) }}" class="m-1 btn btn-primary">
+                        Anulla modifiche
+                    </a>
                 </div>
             </div>
             <div>
@@ -26,8 +29,9 @@
                     @endif
                 </div>
             </div>
-            <form action="{{ route('comics.update', $comic->id) }}" method="POST">
+            <form action="{{ route('comics.update', ['comic' => $comic['id']]) }}" method="POST">
                 @csrf
+                @method('PUT')
                 <div class="form-group mb-3">
                     <label class="control-label">Titolo</label>
                     <input type="text" name="title" class="form-control" placeholder="Inserisci il titolo" value="{{ old('title') ?? $comic['title'] }}">

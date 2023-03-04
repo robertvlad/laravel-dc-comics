@@ -50,6 +50,13 @@
                                     <a href="{{ route('comics.edit', ['comic' => $comic['id']]) }}" class="m-1 btn btn-primary">
                                         Edit
                                     </a>
+                                    <form action="{{ route('comics.destroy', ['comic' => $comic['id']]) }}" class="d-inline-block" method="POST">
+                                        @csrf 
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-sm btn-square btn-danger">
+                                            Delete
+                                        </button>
+                                    </form>
                                 </td>
                             </tr>                                
                             @endforeach

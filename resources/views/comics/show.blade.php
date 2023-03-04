@@ -9,6 +9,16 @@
                 <a href="{{ route('comics.index') }}" class="btn btn-primary">
                     Torna all'elenco
                 </a>
+                <a href="{{ route('comics.edit', ['comic' => $comic['id']]) }}" class="m-1 btn btn-primary">
+                    Edit
+                </a>
+                <form action="{{ route('comics.destroy', ['comic' => $comic['id']]) }}" class="d-inline-block" method="POST">
+                    @csrf 
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-sm btn-square btn-danger">
+                        Delete
+                    </button>
+                </form>
             </div>
             <div class="d-flex justify-content-between align-items-center">
                 <h1>Visualizzazione Comic {{ $comic['title'] }}</h1>
